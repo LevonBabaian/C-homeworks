@@ -1,0 +1,27 @@
+using System;
+
+class QuadraticEquationSolver
+{
+    public static double[] SolveQuadraticEquation(double a, double b, double c)
+    {
+        double[] roots = new double[2];
+        double discriminant = b * b - 4 * a * c;
+
+        if (discriminant < 0)
+            throw new ArgumentException("Equation has no real roots.");
+
+        roots[0] = (-b + Math.Sqrt(discriminant)) / (2 * a);
+        roots[1] = (-b - Math.Sqrt(discriminant)) / (2 * a);
+
+        return roots;
+    }
+
+    static void Main()
+    {
+        double a = 1;
+        double b = -3;
+        double c = 2;
+        double[] roots = SolveQuadraticEquation(a, b, c);
+        Console.WriteLine($"x1 = {roots[0]}, x2 = {roots[1]}");
+    }
+}
